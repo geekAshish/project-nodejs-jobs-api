@@ -1,21 +1,24 @@
 import express from "express";
 import { config } from "dotenv";
+import bodyParser from "body-parser";
 import { connectDB } from "./db/connect";
 import { errorHandlerMiddleware } from "./middleware/error-handler";
 import { notFound } from "./middleware/not-found";
+import userRoute from "./routes/auth";
 
 config();
 
 const app = express();
 const PORT = process.env.PORT || 8080;
 
+// parse application/json
+app.use(bodyParser.json());
+
 // middleware
 app.use(express.json());
 
 // route
-app.use("/", (req, res, next) => {
-  res.send("jobs api");
-});
+app.use("/api/v1/auth", userRoute);
 
 app.use(notFound as any);
 app.use(errorHandlerMiddleware as any);

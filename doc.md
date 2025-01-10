@@ -1,3 +1,5 @@
+7:31:00
+
 #### Setup
 
 ```bash
@@ -30,9 +32,13 @@ Email Validation Regex
 
 - Validate - name, email, password - with Mongoose
 - Hash Password (with bcryptjs)
-- Save User
+- Save User : using mongoose middleware
 - Generate Token
 - Send Response with Token
+
+### Mongoose Middleware
+
+https://mongoosejs.com/docs/middleware.html
 
 #### Login User
 
