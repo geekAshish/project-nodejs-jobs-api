@@ -18,6 +18,8 @@ npm install && npm start
 
 #### User Model
 
+Validation : https://mongoosejs.com/docs/validation.html
+
 Email Validation Regex
 
 ```regex
