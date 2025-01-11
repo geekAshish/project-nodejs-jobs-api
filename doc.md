@@ -1,4 +1,4 @@
-7:31:00
+8:06:40
 
 #### Setup
 
@@ -33,7 +33,7 @@ Email Validation Regex
 - Validate - name, email, password - with Mongoose
 - Hash Password (with bcryptjs)
 - Save User : using mongoose middleware
-- Generate Token
+- Generate Token : can use online key generator to create jwt secrete key
 - Send Response with Token
 
 ### Mongoose Middleware

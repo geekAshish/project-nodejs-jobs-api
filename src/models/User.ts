@@ -1,5 +1,6 @@
 import { InferSchemaType, model, Schema } from "mongoose";
 import bcrypt from "bcryptjs";
+import jwt from "jsonwebtoken";
 
 const UserSchema = new Schema({
   name: {
@@ -29,8 +30,20 @@ UserSchema.pre("save", async function () {
   this.password = await bcrypt.hash(this.password, salt);
 });
 
-UserSchema.methods.getName = function () {
-  return this.name;
+UserSchema.methods.createJWT = function () {
+  return jwt.sign(
+    { userId: this._id, name: this.name },
+    process.env.JWT_TOKEN as string,
+    { expiresIn: process.env.JWT_EXPIRE_TIME as string }
+  );
+};
+
+UserSchema.methods.comparePassword = async function (
+  candidatePassword: string
+) {
+  const isMatch = await bcrypt.compare(candidatePassword, this.password);
+
+  return isMatch;
 };
 
 type UserType = InferSchemaType<any>; // Is any a good for here?
