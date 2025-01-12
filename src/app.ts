@@ -2,10 +2,13 @@ import express from "express";
 import { config } from "dotenv";
 import bodyParser from "body-parser";
 import { connectDB } from "./db/connect";
+
 import { errorHandlerMiddleware } from "./middleware/error-handler";
 import { notFound } from "./middleware/not-found";
-import userRoute from "./routes/auth";
 import { auth } from "./middleware/authentication";
+
+import userRoute from "./routes/auth";
+import jobRoute from "./routes/job";
 
 config();
 
@@ -20,7 +23,7 @@ app.use(express.json());
 
 // route
 app.use("/api/v1/auth", userRoute);
-app.use("/api/v1/jobs", auth, jobsRoute);
+app.use("/api/v1/jobs", auth, jobRoute);
 
 app.use(notFound as any);
 app.use(errorHandlerMiddleware as any);
