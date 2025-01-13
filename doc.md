@@ -63,7 +63,10 @@ https://mongoosejs.com/docs/middleware.html
 - xss-clean
 - express-rate-limit
 
-Swagger UI
+#### Swagger UI
+
+npm i swagger-ui-express
+npm i yamljs
 
 ```yaml
 /jobs/{id}:
