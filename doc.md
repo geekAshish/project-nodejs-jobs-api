@@ -56,6 +56,10 @@ https://mongoosejs.com/docs/middleware.html
 - Duplicate (Email)
 - Cast Error
 
+#### Express validator
+
+- you can create a lib/validators file to separate validation middleware
+
 #### Security
 
 - helmet
