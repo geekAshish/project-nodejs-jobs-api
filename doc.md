@@ -58,6 +58,7 @@ https://mongoosejs.com/docs/middleware.html
 
 #### Express validator
 
+- https://express-validator.github.io/docs/
 - you can create a lib/validators file to separate validation middleware
 
 #### Security
